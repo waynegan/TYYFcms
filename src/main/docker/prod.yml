@@ -1,0 +1,20 @@
+tianya-elasticsearch:
+  container_name: tianya-elasticsearch
+  image: elasticsearch:1.7.3
+  # volumes:
+  #   - ~/volumes/jhipster/tianya/elasticsearch/:/usr/share/elasticsearch/data/
+  ports:
+    - "9200:9200"
+    - "9300:9300"
+tianya-mysql:
+  container_name: tianya-mysql
+  image: mysql:5.7.9
+  # volumes:
+  #   - ~/volumes/jhipster/tianya/mysql/:/var/lib/mysql/
+  environment:
+    - MYSQL_USER=root
+    - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    - MYSQL_DATABASE=tianya
+  ports:
+    - "3306:3306"
+  command: mysqld --lower_case_table_names=1
